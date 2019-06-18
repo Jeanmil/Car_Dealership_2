@@ -1,0 +1,101 @@
+package com.revature.ui;
+
+import java.util.Scanner;
+
+import com.revature.pojo.Car;
+import com.revature.services.Login;
+
+public class PromptCustomer implements Screen {
+
+	private static Screen welcome = new WelcomeScreen();
+	private static Screen logInUser = new Login();
+	public static int choice;
+	public static Scanner input;
+	public static Car car = new Car();
+
+@Override
+public void display() {
+
+	
+	input = new Scanner(System.in);
+	
+do {	
+	System.out.println(" ");
+	System.out.println("Customer options:"
+			+ "\n[1]View Cars"
+			+ "\n[2]Offer for a car"
+			+ "\n[3]View owned cars"
+			+ "\n[4]View remaining payments"
+			+ "\n[5]Exit");
+	
+	choice=input.nextInt();
+		
+switch(choice) {
+
+	case 1 :
+			viewcars();
+			break;
+	case 2: 
+			offerCar();
+			break;
+	case 3:
+			viewOwnedCars();
+			break;
+	case 4: 
+			remainingPayments();
+		 	break;
+	case 5: 
+			exit();
+			break;
+	default: 
+			System.out.println("Invalid choices");
+		}
+	
+	}
+
+	while(choice!=1 && choice!=2 && choice!=3 && choice!=4);
+
+	}
+	
+	private void exit() {
+		welcome.display();
+		logInUser.display();
+	
+}
+
+	private void viewcars() {
+		System.out.println(Car.carlist);
+		System.out.println(" ");
+		display();
+	}
+
+
+	private void remainingPayments() {
+		System.out.println("These are your remaining payments");
+		System.out.println(" ");
+		display();
+	}
+
+
+	private void offerCar() {
+		System.out.println("Please enter which car you would like to make an offer for:");
+		System.out.println(Car.carlist);
+		System.out.println(" ");
+		input = new Scanner(System.in);
+		int i = input.nextInt();
+//		Car.carlist.
+		
+		
+		display();
+	}
+	
+	private void viewOwnedCars() {
+		System.out.println("These are the cars you own");
+		System.out.println(" ");
+		display();
+	
+	}
+
+
+
+}

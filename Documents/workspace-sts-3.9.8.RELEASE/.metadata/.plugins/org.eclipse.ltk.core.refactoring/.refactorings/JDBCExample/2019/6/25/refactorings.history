@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ConnectionFactory.java&apos; to &apos;JeanCarDealership/src/main/java/com.revature.util&apos;&#x0A;- Original project: &apos;JDBCExample&apos;&#x0A;- Destination element: &apos;JeanCarDealership/src/main/java/com.revature.util&apos;&#x0A;- Original element: &apos;com.revature.util.ConnectionFactory.java&apos;" description="Copy compilation unit" destination="=JeanCarDealership/src\/main\/java&lt;com.revature.util" element1="/src\/main\/java&lt;com.revature.util{ConnectionFactory.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1560826067310" units="1" version="1.0"/>
+</session>

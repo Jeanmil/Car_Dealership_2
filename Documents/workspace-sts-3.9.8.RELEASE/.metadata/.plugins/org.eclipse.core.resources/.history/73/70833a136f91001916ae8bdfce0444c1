@@ -1,0 +1,46 @@
+package com.revature.services;
+import java.util.*;
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+import com.revature.ui.PromptCustomer;
+import com.revature.ui.PromptEmployee;
+import com.revature.ui.PromptRegister;
+import com.revature.ui.Screen;
+
+public class Login implements Screen{
+
+	
+	
+	private static Screen empOptions = new PromptEmployee();
+	private static Screen cosOptions = new PromptCostumer();
+	private static Screen registerUser = new PromptRegister();
+	
+	public void display() {
+		
+		Scanner scan = new Scanner(System.in);
+		String input = scan.nextLine();
+//		int r = scan.nextInt();
+//		registerUser.display();
+//		
+		if (input.equalsIgnoreCase("Employee")) {
+			System.out.println("Please enter password");
+			String password = scan.nextLine();
+			empOptions.display();
+			}
+		
+		else if (input.equalsIgnoreCase("Customer")) {
+			System.out.println("Please enter password");
+			String password2 = scan.nextLine();
+			cosOptions.display();
+		}
+		
+		else if (input.equalsIgnoreCase("1"))
+			registerUser.display();
+		}
+		
+		
+	
+	
+}

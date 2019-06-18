@@ -1,0 +1,110 @@
+package com.revature.Dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import com.revature.pojo.Car;
+import com.revature.ui.PromptEmployee;
+import com.revature.ui.Screen;
+import com.revature.util.ConnectionFactory;
+
+
+public class CarDaoImpl implements CarDao{
+	private static Screen empOptions = new PromptEmployee();
+	private Connection conn = ConnectionFactory.getConnection();
+
+	@Override
+	public void addCar(Car c) {
+		Car ret = null;
+		String sql = "insert into project_car(carID, carmake, caryear, carprice) VALUES (?, ?, ?, ?)";
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				ret = new Car();
+				ret.setId(rs.getInt(1));
+				ret.set_make(rs.getString("carmake"));
+				ret.set_year(rs.getString("caryear"));
+				ret.set_price(rs.getInt(1));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void removeCar(int id) {
+
+		String sql = "delete from project_car where carid =" + id;
+		Statement stmt ;
+		try {
+			stmt= conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				
+				System.out.println(rs.getInt(1)+ "\t" +rs.getString(2)+ "\t" +rs.getString(3)+ "\t" +rs.getInt(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			empOptions.display();
+			e.printStackTrace();
+			System.out.println("not working");
+		}
+	}
+
+	@Override
+	public void getCarById(int id) {
+		
+		String sql = "select * from project_car where carID=" + id;
+		Statement stmt ;
+		try {
+			stmt= conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				
+				System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("not working");
+		}
+		
+	}
+
+	@Override
+//	public void getAllCars() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+
+	public void getAllCars() {
+		
+		String sql = "select * from project_car";
+		Statement stmt ;
+		try {
+			stmt= conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				
+				System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("not working");
+		}
+	}
+	
+
+
+}

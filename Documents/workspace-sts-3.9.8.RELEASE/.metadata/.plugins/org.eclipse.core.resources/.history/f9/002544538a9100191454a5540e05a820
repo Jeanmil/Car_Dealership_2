@@ -1,0 +1,5 @@
+package com.revature.logs;
+
+public class LoggingUtil {
+
+}

@@ -1,0 +1,6 @@
+2019-06-18 15:53:10 TRACE root:9 - Car added
+2019-06-18 15:57:37 ERROR root:25 - ERROR: duplicate key value violates unique constraint "project_car_pkey"
+  Detail: Key (carid)=(20) already exists.
+2019-06-18 16:31:30 TRACE root:9 - test
+2019-06-18 16:32:00 TRACE root:9 - test
+2019-06-18 16:32:07 TRACE root:9 - test
